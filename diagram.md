@@ -26,10 +26,17 @@ erDiagram
         uuid id PK
         datetime start_time
         datetime end_time
-        decimal total_price
+    }
+
+    Payment {
+        uuid id PK
+        numeric amount
+        string status
+        datetime timestamp
     }
 
     Client ||--o{ RentalSession : makes
     Vehicle ||--o{ RentalSession : participates_in
     ParkingZone ||--o{ Vehicle : contains
+    RentalSession ||--o{ Payment : generates
 ```
