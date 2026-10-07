@@ -5,9 +5,9 @@
 
 ## Сутності та атрибути
 1. **Client (Клієнт):** id (PK), phone, email, license_number, registration_date.
-2. **Vehicle (Автомобіль):** id (PK), license_plate, model, fuel_level, status.
+2. **Vehicle (Автомобіль):** id (PK), license_plate, model, float fuel_level, status.
 3. **ParkingZone (Паркувальна зона):** id (PK), location_name, max_capacity.
-4. **RentalSession (Сеанс оренди):** id (PK), start_time, end_time, total_price.
+4. **RentalSession (Сеанс оренди):** id (PK), start_time, end_time, decimal total_price.
 
 ## Зв'язки (Бізнес-правила)
 * Один `Client` може мати багато `RentalSession` (історія поїздок), але `RentalSession` завжди належить лише одному `Client`.
@@ -19,3 +19,4 @@
 2. Усі первинні ключі (PK) повинні мати назву `id` та тип даних `uuid`.
 3. Зв'язки між сутностями мають бути показані концептуально (через кардинальність), без використання суто фізичних сполучних (асоціативних) таблиць.
 4. Результат має бути згенерований у декларативному синтаксисі Mermaid (тип `erDiagram`).
+5. Текст зв'язків у синтаксисі Mermaid має бути англійською та без лапок.
