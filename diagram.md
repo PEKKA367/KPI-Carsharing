@@ -1,10 +1,11 @@
+```mermaid
 erDiagram
     Client {
-    uuid id PK
-    string phone
-    string email
-    string license_number
-    string registration_date
+        uuid id PK
+        string phone
+        string email
+        string license_number
+        string registration_date
     }
 
     Vehicle {
@@ -25,9 +26,10 @@ erDiagram
         uuid id PK
         datetime start_time
         datetime end_time
-        float total_price
+        decimal total_price
     }
 
-    Client ||--o{ RentalSession : "здійснює"
-    Vehicle ||--o{ RentalSession : "учащає_в"
-    ParkingZone ||--o{ Vehicle : "містить"
+    Client ||--o{ RentalSession : makes
+    Vehicle ||--o{ RentalSession : participates_in
+    ParkingZone ||--o{ Vehicle : contains
+```
