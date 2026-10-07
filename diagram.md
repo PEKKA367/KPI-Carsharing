@@ -38,5 +38,5 @@ erDiagram
     Client ||--o{ RentalSession : makes
     Vehicle ||--o{ RentalSession : participates_in
     ParkingZone ||--o{ Vehicle : contains
-    RentalSession ||--o{ Payment : generates
+    RentalSession ||--|| Payment : generates
 ```
