@@ -7,12 +7,14 @@
 1. **Client (Клієнт):** id (PK), phone, email, license_number, registration_date.
 2. **Vehicle (Автомобіль):** id (PK), license_plate, model, float fuel_level, status.
 3. **ParkingZone (Паркувальна зона):** id (PK), location_name, max_capacity.
-4. **RentalSession (Сеанс оренди):** id (PK), start_time, end_time, decimal total_price.
+4. **RentalSession (Сеанс оренди):** id (PK), start_time, end_time. 
+5. **Payment (Платіж):** id (PK), amount, status, timestamp.
 
 ## Зв'язки (Бізнес-правила)
 * Один `Client` може мати багато `RentalSession` (історія поїздок), але `RentalSession` завжди належить лише одному `Client`.
 * Один `Vehicle` може мати багато `RentalSession`, але конкретний `RentalSession` стосується лише одного `Vehicle`.
 * Одна `ParkingZone` може містити багато `Vehicle`, але `Vehicle` (у стані очікування) прикріплюється лише до однієї `ParkingZone`.
+* Один `RentalSession` може породжувати один або кілька `Payment` (транзакцій), але кожен `Payment` суворо прив'язаний до конкретного `RentalSession`.
 
 ## Критерії прийняття
 1. Модель повинна бути приведена до 3-ї нормальної форми (3NF).
